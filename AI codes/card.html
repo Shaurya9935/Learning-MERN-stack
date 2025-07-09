@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Card Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .form-box button {
+      padding: 10px 20px;
+      background: #007BFF;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    .form-box button:hover {
+      background: #0056b3;
+    }
+
+    .container {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .image {
+      position: relative;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .capsule {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 5px;
+    }
+
+    .text {
+      padding: 15px;
+    }
+
+    .text h1 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .text p {
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <label>Video Title:</label>
+    <input type="text" id="title" />
+
+    <label>Channel Name:</label>
+    <input type="text" id="cName" />
+
+    <label>Views:</label>
+    <input type="number" id="views" />
+
+    <label>Duration:</label>
+    <input type="text" id="duration" />
+
+    <label>Thumbnail Link:</label>
+    <input type="text" id="thumbnail" />
+
+    <label>Months Old:</label>
+    <input type="number" id="monthOld" />
+
+    <button onclick="handleGenerate()">Generate Card</button>
+  </div>
+
+  <div class="container"></div>
+
+  <script>
+    function generateCard(title, cName, views, duration, monthOld, thumbnail){
+      let viewStr;
+      if (views < 1000000) {
+        viewStr = (views / 1000).toFixed(1) + "K";
+      } else {
+        viewStr = (views / 1000000).toFixed(1) + "M";
+      }
+
+      let html = `
+      <div class="card">
+        <div class="image">
+          <img src="${thumbnail}" alt="Thumbnail">
+          <div class="capsule">${duration}</div>
+        </div>
+        <div class="text">
+          <h1>${title}</h1>
+          <p>${cName} · ${viewStr} views · ${monthOld} months ago</p>
+        </div>
+      </div>`;
+
+      document.querySelector(".container").innerHTML += html;
+    }
+
+    function handleGenerate() {
+      const title = document.getElementById('title').value;
+      const cName = document.getElementById('cName').value;
+      const views = parseInt(document.getElementById('views').value);
+      const duration = document.getElementById('duration').value;
+      const thumbnail = document.getElementById('thumbnail').value;
+      const monthOld = parseInt(document.getElementById('monthOld').value);
+
+      if (title && cName && !isNaN(views) && duration && thumbnail && !isNaN(monthOld)) {
+        generateCard(title, cName, views, duration, monthOld, thumbnail);
+      } else {
+        alert("Please fill all fields correctly.");
+      }
+    }
+  </script>
+</body>
+</html>

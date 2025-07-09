@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.card{
+    display: flex;
+    border: 2px solid black;
+    width: 920px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 5px;
+}
+.image img{
+    width: 200px;
+    border-radius: 7px;
+}
+.text h1, p{
+    padding: 0px 0px;
+}
+.text h1{
+    font-family: "Martel Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: x-large;
+}
+.text p{
+    font-family: "Martel Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small;
+    color: rgb(66, 66, 66);
+}
+.image{
+    position: relative;
+}
+.image .capsule{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #393838;
+    color: white;
+    border-radius: 3px;
+    padding: 1px;
+    margin: 2px;
+    font-size: small;
+}
