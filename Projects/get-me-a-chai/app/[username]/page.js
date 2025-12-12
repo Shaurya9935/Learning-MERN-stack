@@ -1,13 +1,11 @@
 import React from 'react'
 
-const Username = ({params}) => {
-    
-  return (
-    <div className='text-white'>
-        
-        Username Page for {params.username}
-    </div>
-  )
-}
+export default async function Username({ params }) {
+  const { username } = await params;  
 
-export default Username
+  return (
+    <div className="text-white">
+        {username}
+    </div>
+  );
+}

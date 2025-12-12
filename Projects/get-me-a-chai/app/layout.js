@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SessionWrapper>
           <Navbar />
-          <div className="min-h-[calc(100vh-128px)] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
+          <div className="min-h-[calc(100vh-128px)] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] text-white">
             {children}
           </div>
           <Footer />
