@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Username = ({params}) => {
+    
   return (
-    <div>
-      {params.username} 
+    <div className='text-white'>
+        
+        Username Page for {params.username}
     </div>
   )
 }

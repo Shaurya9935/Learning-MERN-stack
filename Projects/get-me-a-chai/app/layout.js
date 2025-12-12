@@ -15,20 +15,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Get Me A Chai- Fund Your Projects with chai",
-  description: "A website to fund your projects",
+  title: "Get Me A Chai - A website for fund your projects",
+  description: "This website is a crowdfunding platform for creators",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SessionWrapper>
           <Navbar />
-          <div className="min-h-[calc(100vh-8rem)] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] text-white">
+          <div className="min-h-[calc(100vh-128px)] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
             {children}
           </div>
-          <Footer /> 
+          <Footer />
         </SessionWrapper>
       </body>
     </html>
